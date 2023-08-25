@@ -35,18 +35,18 @@ function Footer() {
           {/* PRODUCTS section */}
           <h4 className='section-title'>CATEGORIES</h4>
           <ul className='section-list'>
-            <a href='/category/1' className='footer-a-tags'><li>Food</li></a>
-            <a href='/category/2' className='footer-a-tags'><li>Toys</li></a>
-            <a href='/category/3' className='footer-a-tags'><li>Leashes</li></a>
-            <a href='/category/4' className='footer-a-tags'><li>Beds</li></a>
-          </ul>
+              <li><Link to='/category/1' className='footer-a-tags'>Food</Link></li>
+            <li><Link to='/category/2' className='footer-a-tags'>Toys</Link></li>
+           <li><Link to='/category/3' className='footer-a-tags'>Leashes</Link></li>
+              <li><Link to='/category/4' className='footer-a-tags'>Beds</Link></li>
+         </ul>
         </section>
         <section className='footer-section'>
           {/* CONTACT US section */}
           <h4 className='section-title'>CONTACT US</h4>
           <ul className='section-list'>
             <li> lugo.kse23@gmail.com (Abelardo Lugo)</li>
-            <li>99grogan@gmail.com (Connor Grogan)</li>
+            <li> 99grogan@gmail.com (Connor Grogan)</li>
             <li> vergeschris@gmail.com (Chris Verges)</li>
             <li> trentonsmiles@gmail.com (Trenton Sallee)</li>
           </ul>

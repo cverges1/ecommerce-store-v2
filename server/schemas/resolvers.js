@@ -7,6 +7,27 @@ const stripe = require("stripe")(process.env.STRIPE);
 const resolvers = {
   Query: {
     // need to add queries for categories, products and single product
+    categories: async (parent, args, context) => {
+        return await Category.find();
+    },
+    category: async (parent, { _id }) => {
+        return await Category.findById(_id)
+    },
+    products: async (parent, { category, name }) => {
+      const params = {};
+      if (category) {
+        params.category = category;
+      }
+      if (name) {
+        params.name = {
+          $regex: name
+        };
+      }
+      return await Product.find(params).populate('category');
+    },
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id);
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user_id).populate({
@@ -62,6 +83,7 @@ const resolvers = {
       return { session: session.id };
     },
   },
+  
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);

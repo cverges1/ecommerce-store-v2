@@ -7,19 +7,19 @@ function Nav ({ loggedIn }) {
     <header id='nav-wrapper'>
       <nav id='nav'>
         <div className='navbar-left'>
-          <a href='/'>Happy Tails</a>
+        <Link to="/">Happy Tails</Link>
         </div>
         <div className='navbar-right'>
           <ul>
             {loggedIn ? (
               <>
-                <li id='logout'><a href='#'>Logout</a></li>
-                <li><a href='#'>Shopping Cart</a></li>
+                <li id='logout'><Link to="/">Logout</Link></li>
+                <li><Link to="/">Shopping Cart</Link></li>
               </> 
               ) : (
                <>
-                <li><a href='/signup'>Sign Up</a></li>
-                <li><a href='/login'>Login</a></li>
+                <li><Link to="/">Sign up</Link></li>
+                <li><Link to="/">Login</Link></li>
               </>
             )}
           </ul>
