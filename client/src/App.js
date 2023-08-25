@@ -13,7 +13,6 @@ import IndividualCategory from './pages/IndividualCategory';
 import SingleProduct from './pages/SingleProduct';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import ShoppingCart from './pages/ShoppingCart'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -34,11 +33,42 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
-
+      <Router>
+        <div>
+          <StoreProvider>
+            <Nav />
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              <Route 
+                path="/login" 
+                element={<Login />} 
+              />
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
+              />
+              <Route 
+                path="/category/:id" 
+                element={<IndividualCategory />} 
+              />
+              <Route 
+                path="/products/:id" 
+                element={<SingleProduct />} 
+              />
+              <Route
+                path="*" 
+                element={<NoMatch />} 
+              />
+            </Routes>
+          </StoreProvider>
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }
