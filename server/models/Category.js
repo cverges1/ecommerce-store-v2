@@ -6,6 +6,10 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
+    categoryImage: {
+        type: String,
+        required: true
+    },
     categoryID: {
         type: BigInt,
         required: true

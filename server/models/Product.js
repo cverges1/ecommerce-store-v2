@@ -9,16 +9,18 @@ const productSchema = new Schema({
         type, String,
         required: true
     },
-    merchantID: {
-        type: Int,
-        required: true
-    },
     productID: {
         type: BigInt,
         required: true
     },
     categoryID: {
-        
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
+    },
+    categoryImage: {
+        type: String,
+        required: true
     }
 })
 
