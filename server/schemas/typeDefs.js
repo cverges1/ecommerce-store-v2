@@ -30,12 +30,18 @@ type Product {
     categoryImage: String
 }
 
+type Auth {
+    token: ID
+    user: User
+}
+
 type Checkout {
     session: ID
 }
 
 type Query {
     categories: [Category]
+    category(_id: ID!): Category
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
@@ -48,7 +54,7 @@ type Mutation {
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String! email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!. password: String!): Auth
+    login(email: String!, password: String!): Auth
 }
 `;
 
