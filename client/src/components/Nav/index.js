@@ -12,15 +12,15 @@ function Nav ({ loggedIn }) {
         <div className='navbar-right'>
           <ul>
             {loggedIn ? (
-              <a>
+              <>
                 <li id='logout'><a href='#'>Logout</a></li>
                 <li><a href='#'>Shopping Cart</a></li>
-              </a> 
+              </> 
               ) : (
-               <a>
+               <>
                 <li><a href='/signup'>Sign Up</a></li>
                 <li><a href='/login'>Login</a></li>
-              </a>
+              </>
             )}
           </ul>
         </div>
