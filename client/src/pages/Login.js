@@ -51,7 +51,7 @@ function Login(props) {
       </form>
       <div class="register-link">
         <p>Don't have an account yet?</p>
-        <a href="/signup">REGISTER</a>
+        <Link to="/signup">REGISTER</Link>
       </div>
     </div>
   );
