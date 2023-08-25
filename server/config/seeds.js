@@ -1,14 +1,14 @@
 const db = require("./connection");
-const { User, Product, Category } = require("../models");
+const { User, Product, Category, Order } = require("../models");
 
 db.once("open", async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { categoryName: Food },
-    { categoryName: Toys },
-    { categoryName: Leashes },
-    { categoryName: Beds },
+    { categoryName: Food, categoryID: 1 },
+    { categoryName: Toys, categoryID: 2 },
+    { categoryName: Leashes, categoryID: 3 },
+    { categoryName: Beds, categoryID: 4 },
   ]);
 
   console.log("categories seeded");
@@ -240,7 +240,7 @@ db.once("open", async () => {
     {
       name: "Multipet  Lambchop",
       description: "Plush Dog Toy, 10in, White/Tan, Small",
-      price: 12.99
+      price: 12.99,
       image: "https://m.media-amazon.com/images/I/81O7mf19NeL._AC_UL640_FMwebp_QL65_.jpg",
       category_id: categories[2]._id,
     },
