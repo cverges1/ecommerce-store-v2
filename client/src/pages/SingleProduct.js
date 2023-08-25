@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function SingleProductSection({ productData }) {
+  const [quantity, setQuantity] = useState(1);
+
+  function add() {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  }
+
+  function subtract() {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  }
+
   return (
     <section id='single-product-section'>
       <div id='left-column'>
@@ -14,9 +26,9 @@ function SingleProductSection({ productData }) {
             <p id='product-price'>{productData.price}</p>
             <div className='quan-add-div flex-row'>
               <div id='quantity-box'>
-                <button className='quantity-btn' id='subtract-btn'>-</button>
-                <p className='quantity-value'>1</p>
-                <button className='quantity-btn' id='add-btn'>+</button>
+                <button className='quantity-btn' onClick={subtract}>-</button>
+                <p className='quantity-value'>{quantity}</p>
+                <button className='quantity-btn' onClick={add}>+</button>
               </div>
               <div id='add-to-cart-btn-div'>
                 <button id='add-to-cart-btn'>ADD TO CART</button>
