@@ -1,16 +1,17 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import DivSection from "../components/DivSections";
-import CategoryDivSection from "../components/CategoryDivSection"
+import TopDivSection from "../components/TopDivSections";
+import CategoryDivSection from "../components/CategoryDivSection";
+import BottomDivSection from "../components/BottomDivSection";
 
 const Home = () => {
   return (
     <React.Fragment>
       <Nav />
-      <DivSection />
+      <TopDivSection />
       <CategoryDivSection />
-      <DivSection />
+      <BottomDivSection />
       <Footer />
     </React.Fragment>
   );
