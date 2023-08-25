@@ -1,16 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
-    productName: {
+    name: {
         type: String,
         required: true
     },
     description: {
-        type, String,
-        required: true
-    },
-    productID: {
-        type: BigInt,
+        type: String,
         required: true
     },
     categoryID: {
@@ -18,7 +14,7 @@ const productSchema = new Schema({
         ref: 'Category',
         required: true
     },
-    categoryImage: {
+    image: {
         type: String,
         required: true
     }
