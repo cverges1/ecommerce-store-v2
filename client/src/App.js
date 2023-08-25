@@ -13,6 +13,9 @@ import IndividualCategory from './pages/IndividualCategory';
 import SingleProduct from './pages/SingleProduct';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Nav from './components/Nav/index';
+//import NoMatch from './pages/NoMatch';
+// import { StoreProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,7 +41,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <StoreProvider>
+          {/* <StoreProvider> */}
             <Nav />
             <Routes>
               <Route 
@@ -61,12 +64,12 @@ function App() {
                 path="/products/:id" 
                 element={<SingleProduct />} 
               />
-              <Route
+              {/* <Route
                 path="*" 
                 element={<NoMatch />} 
-              />
+              /> */}
             </Routes>
-          </StoreProvider>
+          {/* </StoreProvider> */}
         </div>
       </Router>
     </ApolloProvider>

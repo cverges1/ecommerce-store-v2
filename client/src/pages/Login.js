@@ -36,7 +36,7 @@ function Login(props) {
   };
 
   return (
-    <div class="wrapper-div flex-column w-50 align-items-center justify-content-center">
+    <div className="wrapper-div flex-column w-50 align-items-center justify-content-center">
       <h2>Sign in to your account</h2>
       <form id="sign-in-form" onSubmit={handleFormSubmit}>
         <div class="flex-column">
@@ -49,7 +49,7 @@ function Login(props) {
         </div>
         <button type="submit">SIGN IN</button>
       </form>
-      <div class="register-link">
+      <div className="register-link">
         <p>Don't have an account yet?</p>
         <Link to="/signup">REGISTER</Link>
       </div>
