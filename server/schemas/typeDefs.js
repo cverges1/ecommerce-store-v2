@@ -16,6 +16,20 @@ type User {
     orders: [Order]
 }
 
+type Category {
+    _id: ID
+    categoryName: String
+    categoryImage: String
+}
+type Product {
+    _id: ID
+    productName: String
+    description: String
+    productId: Int
+    categoryId: Category
+    categoryImage: String
+}
+
 type Checkout {
     session: ID
 }
