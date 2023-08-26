@@ -17,7 +17,11 @@ const productSchema = new Schema({
     image: {
         type: String,
         required: true
-    }
+    },
+    isOnSale: {
+        type: Boolean,
+        default: false, 
+    },
 })
 
 const Product = model('Product', productSchema);

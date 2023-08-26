@@ -10,6 +10,7 @@ export const GET_SALE_PRODUCTS = gql`
     }
   }
 `;
+console.log("Executing GET_SALE_PRODUCTS query");
 
 export const GET_NEW_PRODUCTS = gql`
   query GetNewProducts {
