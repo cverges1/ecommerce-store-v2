@@ -19,6 +19,12 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
+  // Save the signup token to localStorage and redirect to a new page
+  signup(token) {
+    localStorage.setItem('id_token', token);
+    window.location.assign('/'); 
+  }
+
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
@@ -33,4 +39,4 @@ class AuthService {
   }
 }
 
-export default new AuthService();
+export default AuthService();
