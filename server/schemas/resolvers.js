@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Order } = require("../models");
+const { User, Order, Product } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")(process.env.STRIPE);
 
@@ -28,6 +28,21 @@ const resolvers = {
     product: async (parent, { _id }) => {
       return await Product.findById(_id);
     },
+
+    saleProducts: async (parent, args, context) => {
+      try {
+        console.log("Resolver for saleProducts is called");
+    
+        // Fetch saleProducts from your database here
+        const saleProducts = await Product.find({ isOnSale: true });
+    
+        return saleProducts;
+      } catch (error) {
+        console.error("Error in saleProducts resolver:", error);
+        throw error; // Rethrow the error to maintain error propagation
+      }
+    },
+
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user_id).populate({

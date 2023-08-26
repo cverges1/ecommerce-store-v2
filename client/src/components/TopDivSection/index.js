@@ -1,15 +1,29 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_SALE_PRODUCTS } from "../../utils/queries";
-// Replace GET_SALE_PRODUCTS with the actual defined query in utils/queries.js 
 
 function TopDivSection() {
   const { loading, error, data } = useQuery(GET_SALE_PRODUCTS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  console.log("Rendering TopDivSection...");
+  console.log("TopDivSection loading:", loading);
+  console.log("TopDivSection error:", error);
+  console.log("TopDivSection data:", data);
+
+  if (loading) {
+    // Initial loading state
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    console.log("Error fetching sale products:", error);
+    return <p>Error: {error.message}</p>;
+  }
 
   const saleProducts = data.saleProducts;
+
+  console.log("Sale products data:", saleProducts);
+
   return (
     <section className="product-section">
       <h3 className="text-align-center section-title top-title">On Sale</h3>
