@@ -12,18 +12,12 @@ function Signup(props) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await Auth.signup({
+      await Auth.signup({
         email: formState.email,
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
       });
-
-      if (response && response.token) {
-        Auth.login(response.token);
-      } else {
-        console.log('No token received after sign-up.');
-      }
     } catch (error) {
       console.error('Error during sign-up:', error);
     }
