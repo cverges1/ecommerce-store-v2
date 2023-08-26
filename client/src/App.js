@@ -14,6 +14,7 @@ import SingleProduct from './pages/SingleProduct';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav/index';
+import Footer from './components/Footer'
 //import NoMatch from './pages/NoMatch';
 // import { StoreProvider } from './utils/GlobalState';
 
@@ -42,33 +43,19 @@ function App() {
       <Router>
         <div>
           {/* <StoreProvider> */}
-            <Nav />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/category/:id" 
-                element={<IndividualCategory />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<SingleProduct />} 
-              />
-              {/* <Route
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/category/:id" element={<IndividualCategory />} />
+            <Route path="/products/:id" element={<SingleProduct />} />
+            {/* <Route
                 path="*" 
                 element={<NoMatch />} 
               /> */}
-            </Routes>
+          </Routes>
+          <Footer />
           {/* </StoreProvider> */}
         </div>
       </Router>
