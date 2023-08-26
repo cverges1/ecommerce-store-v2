@@ -1,12 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-// import ( GET_SALE_PRODUCTS ) from "../utils/queries.js";
-// Replace GET_SALE_PRODUCTS with the actual defined query in graphql/queries.js 
+import { GET_SALE_PRODUCTS } from "../utils/queries.js"
+// Replace GET_SALE_PRODUCTS with the actual defined query in utils/queries.js 
 
 function TopDivSection() {
-  // query
-  // store array of data
-  // map over array
   const { loading, error, data } = useQuery(GET_SALE_PRODUCTS);
 
   if (loading) return <p>Loading...</p>;
