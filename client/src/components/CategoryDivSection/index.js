@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_ALL_CATEGORIES } from "../graphql/queries"; 
+import { GET_ALL_CATEGORIES } from "../../utils/queries"; 
 // Replace GET_ALL_CATEGORIES with the actual defined query in utils/queries.js 
 
 function CategoryDivSection() {

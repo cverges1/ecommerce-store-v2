@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_NEW_PRODUCTS } from "../utils/queries"; 
+import { GET_NEW_PRODUCTS } from "../../utils/queries"; 
 // Replace GET_NEW_PRODUCTS with the actual defined query in utils/queries.js 
 
 function BottomDivSection() {

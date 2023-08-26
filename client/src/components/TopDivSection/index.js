@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_SALE_PRODUCTS } from "../utils/queries.js"
+import { GET_SALE_PRODUCTS } from "../../utils/queries";
 // Replace GET_SALE_PRODUCTS with the actual defined query in utils/queries.js 
 
 function TopDivSection() {
