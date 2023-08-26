@@ -1,5 +1,5 @@
-// use this to decode a token and get the user's information out of it
 import decode from 'jwt-decode';
+import { gql } from '@apollo/client';
 
 // create a new class to instantiate for a user
 class AuthService {
@@ -19,6 +19,33 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
+  async signup(client, userData) {
+    try {
+      // Send a mutation request to the backend for user registration
+      const response = await client.mutate({
+        mutation: gql`
+          mutation Signup($userData: SignupInput!) {
+            addUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName) {
+              token
+            }
+          }
+        `,
+        variables: {
+          userData,
+        },
+      });
+
+      // Check if a valid token was received in the response
+      if (response.data.addUser && response.data.addUser.token) {
+        this.login(response.data.addUser.token);
+      } else {
+        console.log('No token received after sign-up.');
+      }
+    } catch (error) {
+      console.error('Error during sign-up:', error);
+    }
+  }
+
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
@@ -33,4 +60,4 @@ class AuthService {
   }
 }
 
-export default new AuthService();
+export default AuthService;
