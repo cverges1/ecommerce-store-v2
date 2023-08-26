@@ -11,8 +11,8 @@ function BottomDivSection() {
           <a href="/product/{{Product.id}}" class="product-a-tags">
             <img src="{{Product.image}}" alt="" class="product-img"/>
             <div class="text-bottom">
-              <p class="text-align-center product-name">{{Product.name}}</p>
-              <p class="text-align-center product-price">{{Product.price}}</p>
+             <p class="text-align-center product-name">{/* Product.name*/}</p>
+              <p class="text-align-center product-price">{/*Product.price*/}</p>
             </div>
           </a>
         </div>
