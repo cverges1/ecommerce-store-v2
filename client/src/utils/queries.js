@@ -1,5 +1,36 @@
 import { gql } from "@apollo/client";
 
+export const GET_SALE_PRODUCTS = gql`
+  query GetSaleProducts {
+    saleProducts {
+      _id
+      name
+      image
+      price
+    }
+  }
+`;
+
+export const GET_NEW_PRODUCTS = gql`
+  query GetNewProducts {
+    newProducts {
+      _id
+      name
+      image
+      price
+    }
+  }
+`;
+
+export const GET_ALL_CATEGORIES = gql`
+  query GetAllCategories {
+    allCategories {
+      _id
+      name
+    }
+  }
+`;
+
 export const GET_CATEGORIES = gql`
   query GetCategories {
     categories {
