@@ -25,7 +25,11 @@ const productSchema = new Schema({
     salePrice: {
         type: Number,
         default: false, 
-    },
+    },  
+    createdAt: {
+        type: Date,
+        default: Date.now
+      },
 })
 
 const Product = model('Product', productSchema);

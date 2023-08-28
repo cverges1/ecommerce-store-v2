@@ -29,6 +29,7 @@ type Product {
     image: String
     price: Float
     salePrice: Float
+    createdAt: String
 }
 
 type Auth {

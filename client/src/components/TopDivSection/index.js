@@ -5,10 +5,10 @@ import { GET_PRODUCTS } from "../../utils/queries";
 function TopDivSection() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
 
-  console.log("Rendering TopDivSection...");
-  console.log("TopDivSection loading:", loading);
-  console.log("TopDivSection error:", error);
-  console.log("TopDivSection data:", data);
+  // console.log("Rendering TopDivSection...");
+  // console.log("TopDivSection loading:", loading);
+  // console.log("TopDivSection error:", error);
+  // console.log("TopDivSection data:", data);
 
   if (loading) {
     // Initial loading state
