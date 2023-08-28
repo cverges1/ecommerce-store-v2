@@ -13,6 +13,14 @@ const server = new ApolloServer({
     resolvers,
     context: authMiddleware,
 });
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: ({ req }) => {
+//       console.log("Received GraphQL request:", req.body.query);
+//       return authMiddleware(req);
+//   },
+// });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -38,5 +46,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
     };
   
 
-    // start the apollo server
+  // start the apollo server
   startApolloServer(typeDefs, resolvers);

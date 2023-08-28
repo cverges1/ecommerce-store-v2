@@ -10,6 +10,7 @@ export const GET_SALE_PRODUCTS = gql`
     }
   }
 `;
+console.log("Executing GET_SALE_PRODUCTS query");
 
 export const GET_NEW_PRODUCTS = gql`
   query GetNewProducts {
@@ -24,15 +25,16 @@ export const GET_NEW_PRODUCTS = gql`
 
 export const GET_ALL_CATEGORIES = gql`
   query GetAllCategories {
-    allCategories {
+    categories {
       _id
-      name
+      categoryName
+      categoryImage
     }
   }
 `;
 
 export const GET_CATEGORIES = gql`
-  query GetCategories {
+   {
     categories {
       _id
       categoryName

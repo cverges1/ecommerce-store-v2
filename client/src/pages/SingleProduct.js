@@ -1,58 +1,15 @@
-import React, { useState } from 'react';
+import React from "react";
+import { useParams } from "react-router-dom";
+import IndividualProducts from "../components/IndividualProducts";
 
-function SingleProductSection({ productData }) {
-  const [quantity, setQuantity] = useState(1);
-
-  function add() {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  }
-
-  function subtract() {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  }
+function SingleProduct() {
+  const { id } = useParams();
 
   return (
-    <section id='single-product-section'>
-      <div id='left-column'>
-        <img src={productData.image} alt='' className='product-image' />
-      </div>
-
-      <div id='right-column'>
-        <div className='wrapper-div'>
-          <section id="top-section">
-            <h4 id='product-title'>{productData.name}</h4>
-            <p id='product-price'>{productData.price}</p>
-            <div className='quan-add-div flex-row'>
-              <div id='quantity-box'>
-                <button className='quantity-btn' onClick={subtract}>-</button>
-                <p className='quantity-value'>{quantity}</p>
-                <button className='quantity-btn' onClick={add}>+</button>
-              </div>
-              <div id='add-to-cart-btn-div'>
-                <button id='add-to-cart-btn'>ADD TO CART</button>
-              </div>
-            </div>
-          </section>
-          <section id="mid-section">
-            <h5>DETAILS</h5>
-            <p id="mid-details">{productData.description}</p>
-          </section>
-          <section id="bottom-section">
-            <h5>SHIPPING</h5>
-            <p>Take advantage of our exclusive offer for dog lovers! Enjoy free
-              standard shipping on your entire order with any purchase of dog
-              products, such as dog food, toys, leashes/collars, or dog beds. For
-              all other orders over $50, we provide free standard shipping as well.
-              Rest assured, returns are hassle-free with free in-store returns. Some
-              restrictions may apply. Shop now and give your furry friend the love
-              they deserve, with the added benefit of free shipping!</p>
-          </section>
-        </div>
-      </div>
-    </section>
+    <React.Fragment>
+      <IndividualProducts productId={id} />
+    </React.Fragment>
   );
 }
 
-export default SingleProductSection;
+export default SingleProduct;

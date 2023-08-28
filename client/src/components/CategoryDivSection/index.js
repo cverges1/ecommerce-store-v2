@@ -9,16 +9,17 @@ function CategoryDivSection() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const allCategories = data.allCategories; 
+  const allCategories = data.categories; 
 
   return (
     <section className="product-section">
       <h3 className="text-align-center section-title">Categories</h3>
       <div className="flex-row w-100 justify-around">
         {allCategories.map((category) => (
-          <a href={`/category/${category.id}`} key={category.id}>
+          <a href={`/category/${category._id}`} key={category._id}>
             <div>
-              <img src={category.image} alt="" className="product-img" />
+              <img src={category.categoryImage} alt="" className="product-img" />
+              <p>{category.categoryName}</p>
             </div>
           </a>
         ))}
