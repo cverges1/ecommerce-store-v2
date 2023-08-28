@@ -8,19 +8,19 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-// const server = new ApolloServer({
-//     typeDefs,
-//     resolvers,
-//     context: authMiddleware,
-// });
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: ({ req }) => {
-      console.log("Received GraphQL request:", req.body.query);
-      return authMiddleware(req);
-  },
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
 });
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: ({ req }) => {
+//       console.log("Received GraphQL request:", req.body.query);
+//       return authMiddleware(req);
+//   },
+// });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
