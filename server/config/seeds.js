@@ -215,7 +215,7 @@ db.once("open", async () => {
       name: "ORIJEN Dog Small Breed Recipe",
       description:
         "4lb, High-Protein Grain-Free Dry Dog Food, Packaging May Vary",
-      price: 27.90,
+      price: 27.91,
       salePrice: 23.67,
       image: "https://m.media-amazon.com/images/I/61sC9qVHdFL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,

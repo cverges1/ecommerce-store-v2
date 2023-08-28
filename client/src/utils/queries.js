@@ -48,6 +48,7 @@ query allProducts {
     image
     price
     salePrice
+    createdAt
     categoryID {
       _id
       categoryImage
