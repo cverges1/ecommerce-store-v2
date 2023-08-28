@@ -18,8 +18,12 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
-    isOnSale: {
-        type: Boolean,
+    price: {
+        type: Number,
+        default: false, 
+    },
+    salePrice: {
+        type: Number,
         default: false, 
     },
 })

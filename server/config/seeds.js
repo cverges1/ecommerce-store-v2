@@ -79,6 +79,7 @@ db.once("open", async () => {
       description:
         "Best Pet Supplies Crinkle Dog Toy for Small, Medium, and Large Breeds, Cute No Stuffing Duck with Soft Squeaker.",
       price: 5.99,
+      salePrice: 3.99,
       image: "https://m.media-amazon.com/images/I/61iLNIUwPnL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[1]._id,
         },
@@ -103,6 +104,7 @@ db.once("open", async () => {
       description:
         "Quick Release Buckle,Training Dog Leash,Dog's Leash with Rotating Frog Clip, 2 Soft Control Handles,and Reflective Threads. (Black, L).",
       price: 15.99,
+      salePrice: 12.99,
       image: "https://m.media-amazon.com/images/I/71piL0mcnCL._AC_SX679_.jpg",
       categoryID: categories[2]._id,
     },
@@ -119,6 +121,7 @@ db.once("open", async () => {
       description:
         "Washable Dog Bed for Extra Large Dogs with Waterproof Liner, Shredded Memory Foam XL Dog Crate Bed with Removable Cover, Fit Up to 90 LBs Pet Mat Pillow.",
       price: 39.99,
+      salePrice: 25.78,
       image: "https://m.media-amazon.com/images/I/71aiE1rGXdL._AC_SX679_.jpg",
       categoryID: categories[3]._id,
     },
@@ -126,7 +129,8 @@ db.once("open", async () => {
       name: "pettycare Washable Dog Bed",
       description:
         "Washable Dog Beds for Large Dogs with Waterproof Liner, Shredded Memory Foam Big Dog Crate Bed with Removable Cover, Fit Up to 75 LBs Pet Mat Pillow.",
-      price: "$37.99",      
+      price: 37.99,
+      salePrice: 30.99,
       image: "https://m.media-amazon.com/images/I/715x5bU9dWL._AC_SX679_.jpg",
       categoryID: categories[3]._id,
     },
@@ -150,6 +154,7 @@ db.once("open", async () => {
       description:
         "Dry Dog Food Real Chicken and Sweet Potato Grain Free Dog Food Recipe - 22 lb. Bag.",
       price: 58.99,
+      salePrice: 45.99,
       image: "https://m.media-amazon.com/images/I/81gqf05avrL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,
     },
@@ -179,6 +184,7 @@ db.once("open", async () => {
       name: "IAMS Adult Minichunks Small Kibble",
       description: "High Protein Dry Dog Food with Real Chicken, 30 lb. Bag",
       price: 46.98,
+      salePrice: 37.67,
       image:  "https://m.media-amazon.com/images/I/81z6zWIAcqL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,
     },
@@ -210,6 +216,7 @@ db.once("open", async () => {
       description:
         "4lb, High-Protein Grain-Free Dry Dog Food, Packaging May Vary",
       price: 27.90,
+      salePrice: 23.67,
       image: "https://m.media-amazon.com/images/I/61sC9qVHdFL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,
     },
@@ -226,6 +233,7 @@ db.once("open", async () => {
       description:
         "Natural Adult Wet Dog Food, Beef & Chicken Grill 12.5-oz cans (Pack of 12)",
       price: 39.89,
+      salePrice: 28.99,
       image: "https://m.media-amazon.com/images/I/71XWcBxbg6L._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,
         },
@@ -234,6 +242,7 @@ db.once("open", async () => {
       description:
         "Dog Food With Probiotics for Dogs, Shredded Blend Chicken & Rice Formula - 18 lb. Bag",
       price: 61.98,
+      salePrice: 53.99,
       image: "https://m.media-amazon.com/images/I/714-0zLvyVL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[0]._id,
     },
@@ -269,6 +278,7 @@ db.once("open", async () => {
       name: "Chuckit! Ultra Ball Dog Toy",
       description: "Medium (2.5 Inch Diameter) Pack of 2, for breeds 20-60 lbs",
       price: 13.99,
+      salePrice: 10.99,
       image: "https://m.media-amazon.com/images/I/71B+vl+fAGL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[1]._id,
     },
@@ -313,7 +323,7 @@ db.once("open", async () => {
     {
       name: "Multipet's Globlet Pig Dog Toy, Assorted Colors",
       description: "Polka Dot 9-Inch Latex Pig Dog Toy",
-      price: "$6.99",
+      price: 6.99,
       image: "https://m.media-amazon.com/images/I/61BfiTD29-L._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[1]._id,
     },
@@ -368,6 +378,7 @@ db.once("open", async () => {
       name: "PUPTECK Adjustable Dog Harness Collar and Leash Set",
       description: "Step in No Pull Pet Harness for Small Medium Dogs",
       price: 19.99,
+      salePrice: 13.99,
       image: "https://m.media-amazon.com/images/I/81vOUU+WTBL._AC_UL640_FMwebp_QL65_.jpg",
       categoryID: categories[2]._id,
     },
@@ -456,6 +467,7 @@ db.once("open", async () => {
       description:
         "Calming Dog Bed and Mat with Removable Washable Cover for Large Medium Small Dogs and Cats (Large(45x37x6), Light Grey)",
       price: 49.99,
+      salePrice: 43.99,
       image: "https://m.media-amazon.com/images/I/61-eM8zM53L._AC_SX679_.jpg",
       categoryID: categories[3]._id,
     },
@@ -486,7 +498,8 @@ db.once("open", async () => {
       name: "Bedsure Orthopedic Dog Bed for Medium Dogs",
       description:
         "Foam Sofa with Removable Washable Cover, Waterproof Lining and Nonskid Bottom Couch, Pet Bed",
-      price: 59.99,      
+      price: 59.99,
+      salePrice: 51.99,
       image: "https://m.media-amazon.com/images/I/71TgLdByn5L._AC_SX679_.jpg",
       categoryID: categories[3]._id,
     },

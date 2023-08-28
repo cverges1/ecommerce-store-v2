@@ -27,6 +27,8 @@ type Product {
     description: String
     categoryID: Category
     image: String
+    price: Float
+    salePrice: Float
 }
 
 type Auth {
