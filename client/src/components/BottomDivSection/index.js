@@ -10,23 +10,9 @@ function BottomDivSection() {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data.products;
-  let newProducts = [];
+  const newProducts = [data.products[0], data.products[1],data.products[2],data.products[3]]
 
-  for (let i =0; i<4; i++){
-    if (newProducts.length <= 4) {
-      newProducts.push(products[i])
-    }
-  }
-
-  for (let i=0; i<products.length; i++){
-    for (let j = 0; j< newProducts.length; j++){
-      if (products[i]._id !== newProducts[j]._id && products[i].createdAt > newProducts[j].createdAt) {
-        newProducts[j] = products[i]
-      }
-    }
-  }
-
-  console.log('new products', newProducts)
+  console.log('new products', products)
 
   return (
     <section className="product-section">
