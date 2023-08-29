@@ -44,7 +44,7 @@ type Checkout {
 type Query {
     categories: [Category]
     category(_id: ID!): Category
-    products(category: ID, name: String): [Product]
+    products(categoryID: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
     order(_id: ID!): Order

@@ -97,7 +97,7 @@ db.once("open", async () => {
         "5ft 1/2in for Large Dogs & Medium Size Dogs - Highly Reflective Heavy Duty Dog Rope Leash with Soft Padded Anti-Slip Handle- for 18-120 lbs Dogs.",
       price: 8.99,
       image: "https://m.media-amazon.com/images/I/71qm9q3z5oL._AC_SX679_.jpg",
-      categoryID: categories[0]._id,
+      categoryID: categories[2]._id,
         },
     {
       name: "Annalovic Dog Leash",
@@ -147,7 +147,7 @@ db.once("open", async () => {
       description: "Dog Bed for Small Medium Large Dogs.",
       price: 29.99,
       image: "https://m.media-amazon.com/images/I/71YgN8ASz8L._AC_SX679_.jpg",
-      categoryID: categories[0]._id,
+      categoryID: categories[3]._id,
     },
     {
       name: "Merrick Dry Dog Food",

@@ -18,7 +18,7 @@ function BottomDivSection() {
       <h3 className="text-align-center section-title">New Arrivals</h3>
       <div className="flex-row w-100">
         {newProducts.map((product) => (
-          <div className="flex-item col card" id="responsive-cardss" key={product._id}>
+          <div className="flex-item col card" id="responsive-cardss" key={product.id}>
             <a href={`/product/${product._id}`} className="product-a-tags">
               <img src={product.image} alt="" className="product-img" />
               <div className="text-bottom">

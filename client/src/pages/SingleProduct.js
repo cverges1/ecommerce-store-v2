@@ -7,7 +7,7 @@ function SingleProduct() {
 
   return (
     <React.Fragment>
-      <IndividualProducts productId={id} />
+      <IndividualProducts productId={id} categoryId={id}/>
     </React.Fragment>
   );
 }
