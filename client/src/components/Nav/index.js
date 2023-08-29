@@ -18,8 +18,8 @@ function Nav ({ loggedIn }) {
               </> 
               ) : (
                <>
-                <li><Link to="/">Sign up</Link></li>
-                <li><Link to="/">Login</Link></li>
+                <li><Link to="/Signup">Sign up</Link></li>
+                <li><Link to="/login">Login</Link></li>
               </>
             )}
           </ul>
