@@ -38,6 +38,38 @@ query Category($id: ID!) {
 }
 `;
 
+export const GET_SINGLE_CATEGORY = gql`
+query Category($categoryId: ID!) {
+  category(_id: $id) {
+    categoryName
+    categoryImage
+  }
+  products (categoryID: $categoryId){
+    name
+    image
+    description
+    price
+    salePrice
+    _id
+  }
+}`
+
+export const GET_PRODUCTS_BY_CATEGORY = gql`
+query CATEGORY_PRODUCTS($categoryId: ID) {
+  products(categoryID: $categoryId) {
+    _id
+    name
+    description
+    image
+    price
+    salePrice
+    categoryID {
+      _id
+      categoryName
+    }
+  }
+}`
+
 export const GET_PRODUCTS = gql`
 query allProducts {
   products {

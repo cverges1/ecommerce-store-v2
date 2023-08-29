@@ -13,10 +13,10 @@ const resolvers = {
     category: async (parent, { _id }) => {
         return await Category.findById(_id)
     },
-    products: async (parent, { category, name }) => {
+    products: async (parent, { categoryID, name }) => {
       const params = {};
-      if (category) {
-        params.category = category;
+      if (categoryID) {
+        params.categoryID = categoryID;
       }
       if (name) {
         params.name = {

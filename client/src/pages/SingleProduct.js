@@ -7,8 +7,7 @@ function SingleProduct() {
 
   return (
     <React.Fragment>
-      <p>TEST</p>
-      <IndividualProducts productId={id} />
+      <IndividualProducts productId={id} categoryId={id}/>
     </React.Fragment>
   );
 }
