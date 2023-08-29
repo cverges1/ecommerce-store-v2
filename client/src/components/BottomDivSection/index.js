@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../utils/queries"; 
-// Replace GET_NEW_PRODUCTS with the actual defined query in utils/queries.js 
 
 function BottomDivSection() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
