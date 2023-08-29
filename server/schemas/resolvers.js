@@ -23,26 +23,12 @@ const resolvers = {
           $regex: name
         };
       }
-      return await Product.find(params).populate({path: "categoryID"});
+      return await Product.find(params).sort({ createdAt: -1 }).populate({path: "categoryID"});
       // If you are getting errors with the params, just do a basic Product.find()
     },
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate('category');
     },
-
-    // saleProducts: async (parent, args, context) => {
-    //   try {
-    //     console.log("Resolver for saleProducts is called");
-    
-    //     // Fetch saleProducts from your database here
-    //     const saleProducts = await Product.find({ isOnSale: true });
-    
-    //     return saleProducts;
-    //   } catch (error) {
-    //     console.error("Error in saleProducts resolver:", error);
-    //     throw error; // Rethrow the error to maintain error propagation
-    //   }
-    // },
 
     user: async (parent, args, context) => {
       if (context.user) {
