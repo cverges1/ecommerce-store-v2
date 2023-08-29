@@ -30,13 +30,12 @@ export const GET_ALL_CATEGORIES = gql`
 
 
 export const GET_CATEGORY = gql`
-  query GetCategory($categoryId: ID!) {
-    category(_id: $categoryId) {
-      _id
-      categoryName
-      categoryImage
-    }
+query Category($id: ID!) {
+  category(_id: $id) {
+    categoryName
+    categoryImage
   }
+}
 `;
 
 export const GET_PRODUCTS = gql`
@@ -75,6 +74,21 @@ export const GET_PRODUCT = gql`
     }
   }
 `;
+export const GET_SINGLE_PRODUCT = gql`query Product($id: ID!) {
+  product(_id: $id) {
+    name
+    image
+    price
+    salePrice
+    description
+    categoryID {
+      _id
+      categoryImage
+      categoryName
+    }
+  }
+}`
+
 
 export const GET_USER = gql`
   query GetUser {

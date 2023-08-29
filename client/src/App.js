@@ -46,7 +46,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/category/:id" element={<IndividualCategory />} />
-            <Route path="/products/:id" element={<SingleProduct />} />
+            <Route path="/product/:id" element={<SingleProduct />} />
           </Routes>
           <Footer />
         </React.Fragment>

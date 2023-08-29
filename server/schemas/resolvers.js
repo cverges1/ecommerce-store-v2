@@ -27,7 +27,7 @@ const resolvers = {
       // If you are getting errors with the params, just do a basic Product.find()
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await Product.findById(_id).populate('categoryID');
     },
 
     user: async (parent, args, context) => {
