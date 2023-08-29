@@ -20,21 +20,18 @@ function IndividualProducts({ productId }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const productData = data;
-  console.log('productData', data)
-
   return (
     <section id='single-product-section'>
       <Link to={`/product/${data.product._id}`}>
       <div id='left-column'>
-        <img src={productData.product.image} alt='' className='product-image' />
+        <img src={data.product.image} alt='' className='product-image' />
       </div>
 
       <div id='right-column'>
         <div className='wrapper-div'>
           <section id="top-section">
-            <h4 id='product-title'>{productData.product.name}</h4>
-            <p id='product-price'>{productData.product.price}</p>
+            <h4 id='product-title'>{data.product.name}</h4>
+            <p id='product-price'>{data.product.price}</p>
             <div className='quan-add-div flex-row'>
               <div id='quantity-box'>
                 <button className='quantity-btn' id='subtract-btn'>-</button>
@@ -48,7 +45,7 @@ function IndividualProducts({ productId }) {
           </section>
           <section id="mid-section">
             <h5>DETAILS</h5>
-            <p id="mid-details">{productData.product.description}</p>
+            <p id="mid-details">{data.product.description}</p>
           </section>
           <section id="bottom-section">
             <h5>SHIPPING</h5>
