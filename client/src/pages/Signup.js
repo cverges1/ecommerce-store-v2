@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Auth from '../utils/auth'; 
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { SIGNUP_MUTATION } from '../utils/mutations';
 
 function Signup(props) {
   const [formState, setFormState] = useState({
@@ -9,17 +11,32 @@ function Signup(props) {
     lastName: '',
   });
 
+  const [signup] = useMutation(SIGNUP_MUTATION);
+
   const handleFormSubmit = async (event) => {
+    console.log('Form state:', formState);
     event.preventDefault();
     try {
-      await Auth.signup({
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+      const { data } = await signup({
+        variables: {
+          userData: {
+            email: formState.email,
+            password: formState.password,
+            firstName: formState.firstName,
+            lastName: formState.lastName,
+          },
+        },
       });
+      console.log('Response from signup mutation:', data);
+
+      if (data.addUser && data.addUser.token) {
+        Auth.login(data.addUser.token);
+      } else {
+        console.log('No token received after sign-up.');
+      }
     } catch (error) {
       console.error('Error during sign-up:', error);
+      console.log('Full error object:', error);
     }
   };
 
@@ -37,19 +54,39 @@ function Signup(props) {
       <form id="sign-up-form" onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="sign-up-first-name">First Name:</label>
-          <input id="sign-up-first-name" type="text" onChange={handleChange} />
+          <input
+            id="sign-up-first-name"
+            type="text"
+            name="firstName"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="sign-up-last-name">Last Name:</label>
-          <input id="sign-up-last-name" type="text" onChange={handleChange} />
+          <input
+            id="sign-up-last-name"
+            type="text"
+            name="lastName"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="sign-up-email">Email:</label>
-          <input id="sign-up-email" type="email" onChange={handleChange} />
+          <input
+            id="sign-up-email"
+            type="email"
+            name="email"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="sign-up-password">Password:</label>
-          <input id="sign-up-password" type="password" onChange={handleChange} />
+          <input
+            id="sign-up-password"
+            type="password"
+            name="password"
+            onChange={handleChange}
+          />
         </div>
         <button type="submit">SIGN UP</button>
       </form>

@@ -8,12 +8,16 @@ module.exports = {
       token = token.split(' ').pop().trim();
     }
 
+    console.log('Received token:', token);
+
     if (!token) {
       return req;
     }
 
     try {
-      const { data } = jwt.verify(token, process.env.SECRET, { maxAge: process.env.EXPIRATION });
+      const { data } = jwt.verify(token, process.env.SECRET, {
+        maxAge: process.env.EXPIRATION,
+      });
       req.user = data;
     } catch {
       console.log('Invalid token');
@@ -24,6 +28,8 @@ module.exports = {
   signToken: function ({ firstName, email, _id }) {
     const payload = { firstName, email, _id };
 
-    return jwt.sign({ data: payload }, process.env.SECRET, { expiresIn: process.env.EXPIRATION });
+    return jwt.sign({ data: payload }, process.env.SECRET, {
+      expiresIn: process.env.EXPIRATION,
+    });
   },
 };
