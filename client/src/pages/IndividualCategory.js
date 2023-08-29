@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ProductSection({ category }) {
+  if (!category) {
+    return <p>No category data available.</p>;
+  }
+
   return (
     <section className="product-section">
       <h2 className="text-align-center category-title">{category.name}</h2>

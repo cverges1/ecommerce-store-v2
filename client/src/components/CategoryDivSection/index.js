@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_CATEGORIES } from "../../utils/queries"; 
+import { Link } from "react-router-dom"; 
 
 function CategoryDivSection() {
   const { loading, error, data } = useQuery(GET_ALL_CATEGORIES);
@@ -15,11 +16,15 @@ function CategoryDivSection() {
       <h3 className="text-align-center section-title">Categories</h3>
       <div className="flex-row w-100 justify-around">
         {allCategories.map((category) => (
-          <a href={`/category/${category._id}`} key={category._id}>
-            <div>
-              <img src={category.categoryImage} alt="" className="product-img" />
-            </div>
-          </a>
+          <Link to={`/category/${category._id}`} key={category._id}>
+          <div>
+            <img
+              src={category.categoryImage}
+              alt=""
+              className="product-img"
+            />
+          </div>
+        </Link>
         ))}
       </div>
     </section>
