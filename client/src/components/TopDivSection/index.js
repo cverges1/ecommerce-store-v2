@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../utils/queries";
+import { Link } from "react-router-dom";
 
 function TopDivSection() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -48,7 +49,7 @@ function TopDivSection() {
             id="responsive-cards"
             key={product._id}
           >
-            <a href={`/product/${product._id}`} className="product-a-tags">
+            <Link to={`/product/${product._id}`} className="product-a-tags">
               <img src={product.image} alt="" className="product-img" />
               <div className="product-text">
                 <p className="text-align-center product-name">{product.name}</p>
@@ -56,7 +57,7 @@ function TopDivSection() {
                   {product.price}
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

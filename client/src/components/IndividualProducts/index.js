@@ -1,28 +1,40 @@
-import React from "react";
+import React, { useState } from 'react';
 import { useQuery } from "@apollo/client";
-import { GET_PRODUCT } from "../../utils/queries";
+import { GET_SINGLE_PRODUCT } from "../../utils/queries";
+import { Link, useParams} from "react-router-dom";
+// import { useStoreContext } from '../utils/GlobalState';
+
 
 function IndividualProducts({ productId }) {
-  const { loading, error, data } = useQuery(GET_PRODUCT, {
-    variables: { productId },
+  // const[state, dispatch] = useStoreContext();
+  const { id } = useParams();
+
+  // const [currentProduct, setCurrentProduct] = useState({});
+  
+  const { loading, error, data } = useQuery(GET_SINGLE_PRODUCT, {
+    variables: { id },
   });
+
+  console.log(data)
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const productData = data.product;
+  const productData = data;
+  console.log('productData', data)
 
   return (
     <section id='single-product-section'>
+      <Link to={`/product/${data.product._id}`}>
       <div id='left-column'>
-        <img src={productData.image} alt='' className='product-image' />
+        <img src={productData.product.image} alt='' className='product-image' />
       </div>
 
       <div id='right-column'>
         <div className='wrapper-div'>
           <section id="top-section">
-            <h4 id='product-title'>{productData.name}</h4>
-            <p id='product-price'>{productData.price}</p>
+            <h4 id='product-title'>{productData.product.name}</h4>
+            <p id='product-price'>{productData.product.price}</p>
             <div className='quan-add-div flex-row'>
               <div id='quantity-box'>
                 <button className='quantity-btn' id='subtract-btn'>-</button>
@@ -36,7 +48,7 @@ function IndividualProducts({ productId }) {
           </section>
           <section id="mid-section">
             <h5>DETAILS</h5>
-            <p id="mid-details">{productData.description}</p>
+            <p id="mid-details">{productData.product.description}</p>
           </section>
           <section id="bottom-section">
             <h5>SHIPPING</h5>
@@ -52,6 +64,7 @@ function IndividualProducts({ productId }) {
           </section>
         </div>
       </div>
+      </Link>
     </section>
   );
 }
