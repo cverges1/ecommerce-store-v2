@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_CATEGORIES } from "../../utils/queries"; 
-// Replace GET_ALL_CATEGORIES with the actual defined query in utils/queries.js 
 
 function CategoryDivSection() {
   const { loading, error, data } = useQuery(GET_ALL_CATEGORIES);
@@ -19,7 +18,6 @@ function CategoryDivSection() {
           <a href={`/category/${category._id}`} key={category._id}>
             <div>
               <img src={category.categoryImage} alt="" className="product-img" />
-              <p>{category.categoryName}</p>
             </div>
           </a>
         ))}
