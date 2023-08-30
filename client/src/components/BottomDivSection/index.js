@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../utils/queries"; 
+import { Link } from "react-router-dom";
 
 function BottomDivSection() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -17,13 +18,13 @@ function BottomDivSection() {
       <div className="flex-row w-100">
         {newProducts.map((product) => (
           <div className="flex-item col card" id="responsive-cardss" key={product.id}>
-            <a href={`/product/${product._id}`} className="product-a-tags">
+            <Link to={`/product/${product._id}`} className="product-a-tags">
               <img src={product.image} alt="" className="product-img" />
               <div className="text-bottom">
                 <p className="text-align-center product-name">{product.name}</p>
                 <p className="text-align-center product-price">{product.price}</p>
               </div>
-            </a>
+              </Link>
           </div>
         ))}
       </div>
