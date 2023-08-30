@@ -4,6 +4,7 @@ import {
     UPDATE_SINGLE_PRODUCT,
     UPDATE_CATEGORIES,
     UPDATE_SINGLE_CATEGORY,
+    ADD_TO_CART
 
 } from "./actions";
 
@@ -29,6 +30,13 @@ export const reducer = (state, action) => {
                 ...state,
                 currentCategory: action.currentCategory
             }
+        case ADD_TO_CART:
+            return {
+        ...state,
+        cartOpen: true,
+        cart: [...state.cart, action.product],
+      };
+
             default: return state;
     }
 };
