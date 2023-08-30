@@ -17,6 +17,17 @@ export const QUERY_PRODUCTS = gql`
     }
   }
 `;
+export const  QUERY_ALL_PRODUCTS = gql`
+query getAllProducts {
+  products {
+    _id
+    name
+    image
+    price
+    salePrice
+  }
+}
+)`
 
 export const GET_ALL_CATEGORIES = gql`
   query GetAllCategories {
