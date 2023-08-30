@@ -1,21 +1,21 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const QUERY_PRODUCTS = gql`
-query getProductsByCategory($category: ID) {
-  products(category: $category) {
-    _id
-    name
-    description
-    image
-    price
-    salePrice
-    categoryID {
+  query getProductsByCategory($category: ID) {
+    products(category: $category) {
       _id
-      categoryImage
-      categoryName
+      name
+      description
+      image
+      price
+      salePrice
+      categoryID {
+        _id
+        categoryImage
+        categoryName
+      }
     }
   }
-}
 `;
 
 export const GET_ALL_CATEGORIES = gql`
@@ -28,66 +28,66 @@ export const GET_ALL_CATEGORIES = gql`
   }
 `;
 
-
 export const GET_CATEGORY = gql`
-query Category($id: ID!) {
-  category(_id: $id) {
-    categoryName
-    categoryImage
+  query Category($id: ID!) {
+    category(_id: $id) {
+      categoryName
+      categoryImage
+    }
   }
-}
 `;
 
 export const GET_SINGLE_CATEGORY = gql`
-query Category($categoryId: ID!) {
-  category(_id: $id) {
-    categoryName
-    categoryImage
+  query Category($categoryId: ID!) {
+    category(_id: $id) {
+      categoryName
+      categoryImage
+    }
+    products(categoryID: $categoryId) {
+      name
+      image
+      description
+      price
+      salePrice
+      _id
+    }
   }
-  products (categoryID: $categoryId){
-    name
-    image
-    description
-    price
-    salePrice
-    _id
-  }
-}`
+`;
 
 export const GET_PRODUCTS_BY_CATEGORY = gql`
-query CATEGORY_PRODUCTS($categoryId: ID) {
-  products(categoryID: $categoryId) {
-    _id
-    name
-    description
-    image
-    price
-    salePrice
-    categoryID {
+  query CATEGORY_PRODUCTS($categoryId: ID) {
+    products(categoryID: $categoryId) {
       _id
-      categoryName
+      name
+      description
+      image
+      price
+      salePrice
+      categoryID {
+        _id
+        categoryName
+      }
     }
   }
-}`
+`;
 
 export const GET_PRODUCTS = gql`
-query allProducts {
-  products {
-    _id
-    name
-    description
-    image
-    price
-    salePrice
-    createdAt
-    categoryID {
+  query allProducts {
+    products {
       _id
-      categoryImage
-      categoryName
+      name
+      description
+      image
+      price
+      salePrice
+      createdAt
+      categoryID {
+        _id
+        categoryImage
+        categoryName
+      }
     }
   }
-}
-
 `;
 
 export const GET_PRODUCT = gql`
@@ -106,21 +106,22 @@ export const GET_PRODUCT = gql`
     }
   }
 `;
-export const GET_SINGLE_PRODUCT = gql`query Product($id: ID!) {
-  product(_id: $id) {
-    name
-    image
-    price
-    salePrice
-    description
-    categoryID {
-      _id
-      categoryImage
-      categoryName
+export const GET_SINGLE_PRODUCT = gql`
+  query Product($id: ID!) {
+    product(_id: $id) {
+      name
+      image
+      price
+      salePrice
+      description
+      categoryID {
+        _id
+        categoryImage
+        categoryName
+      }
     }
   }
-}`
-
+`;
 
 export const GET_USER = gql`
   query GetUser {
@@ -166,6 +167,19 @@ export const GET_ORDER = gql`
           categoryImage
         }
       }
+    }
+  }
+`;
+
+export const SIGNUP_MUTATION = gql`
+  mutation Signup($userData: SignupInput!) {
+    addUser(
+      email: $email
+      password: $password
+      firstName: $firstName
+      lastName: $lastName
+    ) {
+      token
     }
   }
 `;

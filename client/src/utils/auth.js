@@ -1,5 +1,15 @@
 import decode from 'jwt-decode';
-import { gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { SIGNUP_MUTATION } from './mutations';
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3000/graphql',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 // create a new class to instantiate for a user
 class AuthService {
@@ -19,24 +29,19 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  async signup(client, userData) {
+  async signup(userData) {
     try {
-      // Send a mutation request to the backend for user registration
       const response = await client.mutate({
-        mutation: gql`
-          mutation Signup($userData: SignupInput!) {
-            addUser(email: $email, password: $password, firstName: $firstName, lastName: $lastName) {
-              token
-            }
-          }
-        `,
+        mutation: SIGNUP_MUTATION,
         variables: {
           userData,
         },
       });
 
-      // Check if a valid token was received in the response
+      console.log('Response from server:', response);
+
       if (response.data.addUser && response.data.addUser.token) {
+        console.log('Token received:', response.data.addUser.token);
         this.login(response.data.addUser.token);
       } else {
         console.log('No token received after sign-up.');
@@ -45,7 +50,6 @@ class AuthService {
       console.error('Error during sign-up:', error);
     }
   }
-
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
@@ -60,4 +64,5 @@ class AuthService {
   }
 }
 
-export default AuthService;
+const authServiceInstance = new AuthService();
+export default authServiceInstance;

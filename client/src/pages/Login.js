@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Auth from '../utils/auth'; 
+import Auth from '../utils/auth';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
+
+    console.log('Form submitted with state:', formState);
+
     try {
-      const response = await Auth.login(formState.email, formState.password); 
+      const response = await Auth.login(formState.email, formState.password);
 
       if (response && response.token) {
-        const token = response.token;
-        Auth.login(token);
       } else {
-        console.error("Token not received in the response.");
+        console.error('Token not received in the response.');
       }
     } catch (error) {
-      console.error("An error occurred:", error.message);
+      console.error('An error occurred:', error.message);
     }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormState(previousState => ({
-      ...previousState,
+    setFormState((prevState) => ({
+      ...prevState,
       [name]: value,
     }));
   };
@@ -36,11 +36,23 @@ function Login(props) {
       <form id="sign-in-form" onSubmit={handleFormSubmit}>
         <div className="flex-column">
           <label htmlFor="sign-in-email">Email:</label>
-          <input id="sign-in-email" type="text" placeholder="" onChange={handleChange} />
+          <input
+            id="sign-in-email"
+            type="text"
+            name="email"
+            placeholder=""
+            onChange={handleChange}
+          />
         </div>
         <div className="flex-column">
           <label htmlFor="sign-in-password">Password:</label>
-          <input id="sign-in-password" type="password" placeholder="" onChange={handleChange} />
+          <input
+            id="sign-in-password"
+            type="password"
+            name="password"
+            placeholder=""
+            onChange={handleChange}
+          />
         </div>
         <button type="submit">SIGN IN</button>
       </form>
