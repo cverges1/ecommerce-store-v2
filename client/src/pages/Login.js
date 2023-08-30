@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import { LOGIN } from '../utils/mutations';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
 
+  const [login, { error }] = useMutation(LOGIN);
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    console.log('Form submitted with state:', formState);
-
     try {
-      const response = await Auth.login(formState.email, formState.password);
-
-      if (response && response.token) {
-      } else {
-        console.error('Token not received in the response.');
-      }
-    } catch (error) {
-      console.error('An error occurred:', error.message);
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
     }
   };
 

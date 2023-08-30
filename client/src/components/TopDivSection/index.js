@@ -36,9 +36,6 @@ function TopDivSection() {
     .map((a) => a.x)
     .slice(0, 4);
 
-
-  console.log("Sale products data:", randomSaleProducts);
-
   return (
     <section className="product-section">
       <h3 className="text-align-center section-title top-title">On Sale</h3>
