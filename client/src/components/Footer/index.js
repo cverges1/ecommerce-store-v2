@@ -35,10 +35,10 @@ function Footer() {
           {/* PRODUCTS section */}
           <h4 className='section-title'>CATEGORIES</h4>
           <ul className='section-list'>
-              <li><Link to='/category/1' className='footer-a-tags'>Food</Link></li>
-            <li><Link to='/category/2' className='footer-a-tags'>Toys</Link></li>
-           <li><Link to='/category/3' className='footer-a-tags'>Leashes</Link></li>
-              <li><Link to='/category/4' className='footer-a-tags'>Beds</Link></li>
+              <li><Link to='/category/64ee9db0e76140afd3d50ed8' className='footer-a-tags'>Food</Link></li>
+            <li><Link to='/category/64ee9db0e76140afd3d50ed9' className='footer-a-tags'>Toys</Link></li>
+           <li><Link to='/category/64ee9db0e76140afd3d50eda' className='footer-a-tags'>Leashes</Link></li>
+              <li><Link to='/category/64ee9db0e76140afd3d50edb' className='footer-a-tags'>Beds</Link></li>
          </ul>
         </section>
         <section className='footer-section'>
