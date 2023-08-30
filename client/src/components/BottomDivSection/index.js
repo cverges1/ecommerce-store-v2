@@ -12,8 +12,6 @@ function BottomDivSection() {
   const products = data.products;
   const newProducts = [data.products[0], data.products[1],data.products[2],data.products[3]]
 
-  console.log('new products', products)
-
   return (
     <section className="product-section">
       <h3 className="text-align-center section-title">New Arrivals</h3>

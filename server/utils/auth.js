@@ -1,4 +1,7 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const secret = "some secret";
 
 module.exports = {
   authMiddleware: function ({ req }) {
@@ -25,11 +28,13 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
+  signToken: function ({ firstName, lastName, email, _id }) {
+    const payload = { firstName, lastName, email, _id };
 
-    return jwt.sign({ data: payload }, process.env.SECRET, {
-      expiresIn: process.env.EXPIRATION,
+    console.log('auth',process.env.SECRET)
+
+    return jwt.sign({ data: payload }, secret, {
+      expiresIn: '2h',
     });
   },
 };
