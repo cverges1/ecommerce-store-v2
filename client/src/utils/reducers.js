@@ -4,7 +4,9 @@ import {
     UPDATE_SINGLE_PRODUCT,
     UPDATE_CATEGORIES,
     UPDATE_SINGLE_CATEGORY,
-    ADD_TO_CART
+    ADD_TO_CART,
+    UPDATE_CART_QUANTITY,
+    REMOVE_FROM_CART
 
 } from "./actions";
 
@@ -30,6 +32,18 @@ export const reducer = (state, action) => {
                 ...state,
                 currentCategory: action.currentCategory
             }
+        case UPDATE_CART_QUANTITY:
+            return {
+                ...state,
+                cartOpen: true,
+                cart: state.cart.map(product => {
+                    if (action._id === product._id) {
+                        product.purchaseQuantity = action.purchaseQuantity
+          }
+            return product
+            })
+        };
+
         case ADD_TO_CART:
             return {
         ...state,
