@@ -1,22 +1,29 @@
 import React from "react";
-//import Auth from "../../utils/auth";
+import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import Logout from "../Logout";
 
-function Nav({ loggedIn }) {
+function Nav() {
   return (
-    <header id='nav-wrapper'>
-      <nav id='nav'>
-        <div className='navbar-left'>
+    <header id="nav-wrapper">
+      <nav id="nav">
+        <div className="navbar-left">
           <Link to="/">Happy Tails</Link>
         </div>
-        <div className='navbar-right'>
+        <div className="navbar-right">
           <ul>
-            {loggedIn ? (
+            {Auth.loggedIn() ? (
               <>
-                <li id='logout'><Link to="/">Logout</Link></li>
-                <li><Link to="/">Home</Link></li>
+                <li>
+                  < Logout ></Logout>
+                 </li>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
                 {/* Show the Shopping Cart button only when logged in */}
-                <li><Link to="/">Shopping Cart</Link></li>
+                <li>
+                  <Link to="/">Shopping Cart</Link>
+                </li>
               </>
             ) : (
               <>
