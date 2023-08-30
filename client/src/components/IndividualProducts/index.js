@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SINGLE_PRODUCT } from '../../utils/queries';
 import { Link, useParams } from 'react-router-dom';
@@ -12,16 +12,29 @@ function IndividualProducts({ productId }) {
 
   console.log(data);
 
+  const [quantity, setQuantity] = useState(1); 
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  // Event handler for increasing quantity
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+  };
+
+  // Event handler for decreasing quantity
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <section id="single-product-section">
-      <Link to={`/product/${data.product._id}`}>
+      <Link to={`/product/${data.product._id}`}></Link>
         <div id="left-column">
           <img src={data.product.image} alt="" className="product-image" />
         </div>
-
         <div id="right-column">
           <div className="wrapper-div">
             <section id="top-section">
@@ -29,11 +42,11 @@ function IndividualProducts({ productId }) {
               <p id="product-price">{data.product.price}</p>
               <div className="quan-add-div flex-row">
                 <div id="quantity-box">
-                  <button className="quantity-btn" id="subtract-btn">
+                  <button className="quantity-btn" id="subtract-btn" onClick={handleDecrease}>
                     -
                   </button>
-                  <p className="quantity-value">1</p>
-                  <button className="quantity-btn" id="add-btn">
+                  <p className="quantity-value">{quantity}</p>
+                  <button className="quantity-btn" id="add-btn" onClick={handleIncrease}>
                     +
                   </button>
                 </div>
@@ -61,7 +74,6 @@ function IndividualProducts({ productId }) {
             </section>
           </div>
         </div>
-      </Link>
     </section>
   );
 }
