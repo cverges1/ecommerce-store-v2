@@ -22,6 +22,8 @@ function Nav({ loggedIn }) {
               <>
                 <li><Link to="/Signup">Sign up</Link></li>
                 <li><Link to="/login">Login</Link></li>
+                <li><Link to="/ShoppingCart">Shopping Cart</Link></li>
+
               </>
             )}
           </ul>

@@ -2,6 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_BY_CATEGORY } from "../utils/queries";
 import { Link, useParams } from "react-router-dom";
+// import { useCart } from '../utils/CartContext';
+
 
 function ProductSection() {
   const { id } = useParams();
@@ -14,6 +16,22 @@ function ProductSection() {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data.products;
+
+  // const IndividualProducts = () => {
+  //   const { cartDispatch } = useCart();
+  
+    // ...  component logic
+  
+    // const addToCart = (product, quantity) => {
+    //   cartDispatch({ type: 'ADD_TO_CART', payload: { product, quantity } });
+    // };
+  
+    // ...  component JSX
+  // };
+  
+  // export default IndividualProducts;
+
+
 
   return (
     <section className="product-section">
