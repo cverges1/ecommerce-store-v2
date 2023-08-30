@@ -2,41 +2,41 @@ import React from 'react';
 
 const Cart = ({ serializedCategory }) => {
   return (
-    <div>
-      {serializedCategory.map((Product, index) => (
-        <div key={index}>
-          <div id="left-column-div-cart">
-            <div><img src={`/images/${Product.image}`} alt="" /></div>
-            <p id="product-title-cart">{Product.description}</p>
-            <p id="product-price-cart">{Product.price}</p>
+    <React.Fragment>
+      {serializedCategory.map((product, index) => (
+        <div className="cart-item" key={index}>
+          <div className="left-column">
+            <img src={`/images/${product.image}`} alt="" />
+            <p className="product-title">{product.description}</p>
+            <p className="product-price">{product.price}</p>
             <p>QTY 1</p>
             <p>REMOVE</p>
           </div>
 
-          <div id="right-column-div-cart">
-            <div>
+          <div className="right-column">
+            <div className="order-summary">
               <p>Order Summary</p>
-              <div id="left-text">
+              <div className="order-summary-text">
                 <div><p>Subtotal:</p></div>
                 <div><p>Estimated Shipping</p></div>
                 <div><p>Estimated Sales Tax</p></div>
               </div>
-              <div id="right-text">
-                <div>{Product.subtotal}</div>
+              <div className="order-summary-values">
+                <div>{product.subtotal}</div>
                 <div><p>Free</p></div>
                 <div><p>-</p></div>
               </div>
             </div>
 
-            <div>
+            <div className="total-section">
               <div><p>Total</p></div>
-              <div>{Product.total}</div>
+              <div>{product.total}</div>
               <button>PLACE ORDER</button>
             </div>
           </div>
         </div>
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 

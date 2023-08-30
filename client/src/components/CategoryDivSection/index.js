@@ -12,6 +12,7 @@ function CategoryDivSection() {
   const allCategories = data.categories; 
 
   return (
+    
     <section className="product-section">
       <h3 className="text-align-center section-title">Categories</h3>
       <div className="flex-row w-100 justify-around">
