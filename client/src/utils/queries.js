@@ -72,22 +72,6 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
-export const GET_PRODUCT = gql`
-  query GetProduct($productId: ID!) {
-    product(_id: $productId) {
-      _id
-      productName
-      description
-      productId
-      categoryImage
-      categoryId {
-        _id
-        categoryName
-        categoryImage
-      }
-    }
-  }
-`;
 export const GET_SINGLE_PRODUCT = gql`
   query Product($id: ID!) {
     product(_id: $id) {
