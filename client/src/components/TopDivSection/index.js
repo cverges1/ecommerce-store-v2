@@ -1,15 +1,10 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PRODUCTS } from "../../utils/queries";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_PRODUCTS } from '../../utils/queries';
+import { Link } from 'react-router-dom';
 
 function TopDivSection() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
-
-  // console.log("Rendering TopDivSection...");
-  // console.log("TopDivSection loading:", loading);
-  // console.log("TopDivSection error:", error);
-  // console.log("TopDivSection data:", data);
 
   if (loading) {
     // Initial loading state
@@ -17,7 +12,7 @@ function TopDivSection() {
   }
 
   if (error) {
-    console.log("Error fetching sale products:", error);
+    console.log('Error fetching sale products:', error);
     return <p>Error: {error.message}</p>;
   }
 
