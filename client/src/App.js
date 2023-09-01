@@ -40,7 +40,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-          {/* <CartProvider>   */}
       <Router>
         <React.Fragment>
           <Nav />
@@ -55,8 +54,6 @@ function App() {
           <Footer />
         </React.Fragment>
       </Router>
-      {/* </CartProvider> */}
-
     </ApolloProvider>
   );
 }

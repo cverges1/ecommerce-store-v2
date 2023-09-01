@@ -22,7 +22,7 @@ function Nav() {
                 </li>
                 {/* Show the Shopping Cart button only when logged in */}
                 <li>
-                  <Link to="/">Shopping Cart</Link>
+                  <Link to="/">Shopping cart</Link>
                 </li>
               </>
             ) : (
