@@ -23,7 +23,7 @@ function Nav() {
                 </li>
                 {/* Show the Shopping Cart button only when logged in */}
                 <li>
-                  <Link to="/">Shopping cart</Link>
+                  <Link to="/ShoppingCart">Shopping cart</Link>
                 </li>
               </>
             ) : (
@@ -35,7 +35,7 @@ function Nav() {
                   <Link to="/login">Login</Link>
                 </li>
                 <li>
-                  <Link to="/ShoppingCart">Shopping Cart</Link>
+                  <Link to="/ShoppingCart">Guest cart</Link>
                 </li>
               </>
             )}
