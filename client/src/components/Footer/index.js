@@ -32,10 +32,8 @@ function Footer() {
           </ul>
         </section>
       
-        </section>
+        {/* CONTACT US section */}
         <section className="footer-section">
-          {/* CONTACT US section */}
-
           <h4 className="section-title">CONTACT US</h4>
           <ul className="section-list">
             <li>

@@ -4,12 +4,15 @@ import { GET_PRODUCTS_BY_CATEGORY } from '../utils/queries';
 import { Link, useParams } from 'react-router-dom';
 
 function ProductSection() {
+  // Get the category ID from the URL parameters
   const { id } = useParams();
 
+  // Fetch products using GraphQL query
   const { loading, error, data } = useQuery(GET_PRODUCTS_BY_CATEGORY, {
     variables: { categoryId: id },
   });
 
+  // Handle loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

@@ -5,23 +5,32 @@ import Auth from '../utils/auth';
 import { LOGIN } from '../utils/mutations';
 
 function Login(props) {
+  // State to hold form input values
   const [formState, setFormState] = useState({ email: '', password: '' });
 
+  // Mutation for user login
   const [login] = useMutation(LOGIN);
 
+  // Function to handle form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Call the login mutation with user input
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+
+      // Get the token from the mutation response
       const token = mutationResponse.data.login.token;
+
+      // Log the user in using the Auth utility
       Auth.login(token);
     } catch (e) {
       console.log(e);
     }
   };
 
+  // Function to handle input field changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState((prevState) => ({

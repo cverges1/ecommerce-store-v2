@@ -4,8 +4,10 @@ import { GET_ALL_CATEGORIES } from '../../utils/queries';
 import { Link } from 'react-router-dom';
 
 function CategoryDivSection() {
+  // Fetch categories using GraphQL query
   const { loading, error, data } = useQuery(GET_ALL_CATEGORIES);
 
+  // Handle loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -15,6 +17,7 @@ function CategoryDivSection() {
     <section className="product-section">
       <h3 className="text-align-center section-title">Categories</h3>
       <div className="flex-row w-100 justify-around">
+        {/* Render category products */}
         {allCategories.map((category) => (
           <Link to={`/category/${category._id}`} key={category._id}>
             <div>
