@@ -12,27 +12,6 @@ export const LOGIN = gql`
     }
   }
 `;
-//mutation for ADD_USERS
-export const ADD_USERS = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
-      token
-      user {
-        _id
-      }
-    }
-  }
-`;
 
 // mutation for signup
 export const ADD_USERS = gql`
