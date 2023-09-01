@@ -4,14 +4,18 @@ import { GET_SINGLE_PRODUCT } from '../../utils/queries';
 import { Link, useParams } from 'react-router-dom';
 
 function IndividualProducts({ productId }) {
+  // Get the product ID from URL parameters
   const { id } = useParams();
 
+  // Fetch product details using GraphQL query
   const { loading, error, data } = useQuery(GET_SINGLE_PRODUCT, {
     variables: { id },
   });
 
+  // State for managing the quantity
   const [quantity, setQuantity] = useState(1);
 
+  // Handle loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 

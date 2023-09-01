@@ -12,6 +12,7 @@ function Nav() {
         </div>
         <div className="navbar-right">
           <ul>
+            {/* Conditional rendering based on user authentication */}
             {Auth.loggedIn() ? (
               <>
                 <li>

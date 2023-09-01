@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Component for the shopping cart content
 const CartComponent = () => {
   return (
     <React.Fragment>

@@ -4,6 +4,7 @@ import { GET_PRODUCTS } from '../../utils/queries';
 import { Link } from 'react-router-dom';
 
 function TopDivSection() {
+  // Fetch products using GraphQL query
   const { loading, error, data } = useQuery(GET_PRODUCTS);
 
   if (loading) {
@@ -25,6 +26,7 @@ function TopDivSection() {
     }
   }
 
+  // Shuffle the sale products and select 4 random ones
   const randomSaleProducts = saleProducts
     .map((x) => ({ x, r: Math.random() }))
     .sort((a, b) => a.r - b.r)
@@ -35,6 +37,7 @@ function TopDivSection() {
     <section className="product-section">
       <h3 className="text-align-center section-title top-title">On Sale</h3>
       <div className="flex-row w-100">
+        {/* Render each product card */}
         {randomSaleProducts.map((product) => (
           <div
             className="flex-item col card"

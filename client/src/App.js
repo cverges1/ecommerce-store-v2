@@ -17,10 +17,12 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import ShoppingCart from './pages/ShoppingCart';
 
+// Create an HTTP link for GraphQL queries
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
+// Set up authentication headers for Apollo Client
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -31,11 +33,13 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// Initialize Apollo Client
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
+// Main component representing the app
 function App() {
   return (
     <ApolloProvider client={client}>
