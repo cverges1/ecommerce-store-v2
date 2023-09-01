@@ -1,5 +1,7 @@
+//importing our mongoose dependency
 const { Schema, model } = require('mongoose');
 
+//setting up the schema model for Product
 const productSchema = new Schema({
     name: {
         type: String,
