@@ -31,52 +31,36 @@ function Footer() {
             <li>Third-Party Disclosure</li>
           </ul>
         </section>
-        <section className="footer-section">
-          {/* PRODUCTS section */}
-          <h4 className="section-title">CATEGORIES</h4>
-          <ul className="section-list">
-            <li>
-              <Link
-                to="/category/64eecfcfc28e6300dda1d73c"
-                className="footer-a-tags"
-              >
-                Food
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/category/64eecfcfc28e6300dda1d73d"
-                className="footer-a-tags"
-              >
-                Toys
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/category/64eecfcfc28e6300dda1d73e"
-                className="footer-a-tags"
-              >
-                Leashes
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/category/64eecfcfc28e6300dda1d73f"
-                className="footer-a-tags"
-              >
-                Beds
-              </Link>
-            </li>
-          </ul>
+      
         </section>
         <section className="footer-section">
           {/* CONTACT US section */}
+
           <h4 className="section-title">CONTACT US</h4>
           <ul className="section-list">
-            <li> lugo.kse23@gmail.com (Abelardo Lugo)</li>
-            <li> 99grogan@gmail.com (Connor Grogan)</li>
-            <li> vergeschris@gmail.com (Chris Verges)</li>
-            <li> trentonsmiles@gmail.com (Trenton Sallee)</li>
+            <li>
+              <Link to="mailto:lugo.kse23@gmail.com" className="footerEmail">
+                Abelardo Lugo (lugo.kse23@gmail.com)
+              </Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link to="mailto:99grogan@gmail.com" className="footerEmail">
+                Connor Grogan (99grogan@gmail.com)
+              </Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link to="mailto:vergeschris@gmail.com" className="footerEmail">
+                Chris Verges (vergeschris@gmail.com)
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link to="mailto:trentonsmiles@gmail.com" className="footerEmail">
+                Trenton Sallee (trentonsmiles@gmail.com)
+              </Link>
+            </li>
           </ul>
         </section>
       </div>
