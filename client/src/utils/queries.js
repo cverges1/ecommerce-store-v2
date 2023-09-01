@@ -27,7 +27,7 @@ query getAllProducts {
     salePrice
   }
 }
-)`
+`;
 
 export const GET_ALL_CATEGORIES = gql`
   query GetAllCategories {
