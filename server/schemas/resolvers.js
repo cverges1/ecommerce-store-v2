@@ -6,15 +6,15 @@ const stripe = require('stripe')(process.env.STRIPE);
 
 const resolvers = {
   Query: {
-    // get all categories
+    // Get all categories
     categories: async (parent, args, context) => {
       return await Category.find();
     },
-    // get category by ID
+    // Get category by ID
     category: async (parent, { _id }) => {
       return await Category.findById(_id);
     },
-    // get products by categoryID or name
+    // Get products by categoryID or name
     products: async (parent, { categoryID, name }) => {
       const params = {};
       if (categoryID) {
@@ -29,11 +29,11 @@ const resolvers = {
         .sort({ createdAt: -1 })
         .populate({ path: 'categoryID' });
     },
-    // get single product by ID
+    // Get single product by ID
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate('categoryID');
     },
-    // get user and user orders
+    // Get user and user orders
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user_id).populate({
@@ -46,7 +46,7 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    // get order for future development
+    // Get order for future development
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -59,7 +59,7 @@ const resolvers = {
 
       throw new AuthenticationError('You are not logged in');
     },
-    // get checkout for future development
+    // Get checkout for future development
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
@@ -79,7 +79,7 @@ const resolvers = {
           quantity: 1,
         });
       }
-      // get session for checking out with stripe. Future development
+      // Get session for checking out with stripe. Future development
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items,
@@ -93,7 +93,7 @@ const resolvers = {
   },
 
   Mutation: {
-    // mutation to add a user
+    // Mutation to add a user
     addUser: async (parent, args) => {
       console.log(args);
       try {
@@ -105,7 +105,7 @@ const resolvers = {
         throw new Error('Failed to create user');
       }
     },
-    // add an order
+    // Add an order
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
         const order = new Order({ products });
@@ -119,7 +119,7 @@ const resolvers = {
 
       throw new AuthenticationError('You are not logged in');
     },
-    // update a user
+    // Update a user
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, {
@@ -129,7 +129,7 @@ const resolvers = {
 
       throw new AuthenticationError('You are not logged in');
     },
-    // allows users to login
+    // Allows users to login
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
