@@ -1,4 +1,4 @@
-//Importing our dependencies and middleware
+// Importing our dependencies and middleware
 
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-//This will initialize our Apollo Server and  apply the middleware
+// This will initialize our Apollo Server and  apply the middleware
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
