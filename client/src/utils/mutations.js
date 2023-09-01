@@ -1,12 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN = gql`
-  mutation login(
-    $email: String!
-    $password: String!) {
-    login(
-      email: $email
-      password: $password) {
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
       token
       user {
         _id
@@ -37,14 +33,25 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_USERS = gql`
-mutation ADD_USER($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-  addUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
-    token
-    user {
-      _id
+  mutation ADD_USER(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addUser(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      user {
+        _id
+      }
     }
   }
-}`
+`;
 
 export const SIGNUP_MUTATION = gql`
   mutation Signup($userData: SignupInput!) {
@@ -55,8 +62,7 @@ export const SIGNUP_MUTATION = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder(
-    $products: [ID]!) {
+  mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
       purchaseDate
       products {
@@ -67,14 +73,15 @@ export const ADD_ORDER = gql`
         quantity
         category {
           name
-            }
-          }
         }
       }
-    `;
+    }
+  }
+`;
 
-// KEEPING FOR FUTURE IMPLEMENTATION
-    // export const ADD_CATEGORY = gql`
+// Keeping for future implementation
+
+// export const ADD_CATEGORY = gql`
 //   mutation addCategory(
 //     $categoryName: String!
 //     $categoryImage: String) {
@@ -101,4 +108,3 @@ export const ADD_ORDER = gql`
 //         salePrice: $salePrice
 //         createdAt: $createdAt
 //       )`;
-    
