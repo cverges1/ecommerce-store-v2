@@ -1,3 +1,4 @@
+//importing our database connection
 const db = require("./connection");
 const { User, Product, Category, Order } = require("../models");
 
@@ -10,11 +11,11 @@ db.once("open", async () => {
     { categoryName: 'Leashes', categoryImage: "https://images-na.ssl-images-amazon.com/images/G/01/img20/pets/Dog_Cat_Storefront/Dog_Tile_Collar_Leashes_440x440_ENG.jpg" },
     { categoryName: 'Beds', categoryImage: "https://images-na.ssl-images-amazon.com/images/G/01/img20/pets/Dog_Cat_Storefront/Dog_Tile_Bed_Furniture_440x440_ENG.jpg" },
   ]);
-
+  //console log that lets us know that the categories have been seeded
   console.log("categories seeded");
 
   await Product.deleteMany();
-
+  // here we insert many products into our database
   const products = await Product.insertMany([
     {
       name: "Purina ONE ",
@@ -529,8 +530,9 @@ db.once("open", async () => {
       categoryID: categories[3]._id,
     },
   ]);
-
+  //console log that lets us know that the products have been seeded
   console.log('products seeded');
 
+  //exit the seeding process
 process.exit();
 });
