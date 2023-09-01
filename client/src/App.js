@@ -15,7 +15,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
-import { CartProvider } from './utils/CartContext';
 import ShoppingCart from './pages/ShoppingCart';
 
 const httpLink = createHttpLink({

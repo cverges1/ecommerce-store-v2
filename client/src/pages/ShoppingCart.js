@@ -4,7 +4,7 @@ import CartComponent from '../components/Cart';
 const Cart = ({ serializedCategory }) => {
   return (
     <React.Fragment>
-        <CartComponent/>
+      <CartComponent />
     </React.Fragment>
   );
 };
