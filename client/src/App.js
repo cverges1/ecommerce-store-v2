@@ -16,6 +16,7 @@ import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import { CartProvider } from './utils/CartContext';
+import ShoppingCart from './pages/ShoppingCart';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,7 +40,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-          {/* <CartProvider>   */}
       <Router>
         <React.Fragment>
           <Nav />
@@ -49,12 +49,11 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/category/:id" element={<IndividualCategory />} />
             <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/ShoppingCart" element={<ShoppingCart />} />
           </Routes>
           <Footer />
         </React.Fragment>
       </Router>
-      {/* </CartProvider> */}
-
     </ApolloProvider>
   );
 }
