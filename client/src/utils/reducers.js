@@ -1,4 +1,6 @@
+// Importing out reducers from react 
 import { useReducer } from 'react';
+// Importing our actions from its respective file
 import {
   UPDATE_PRODUCTS,
   UPDATE_SINGLE_PRODUCT,
@@ -10,6 +12,7 @@ import {
   CLEAR_CART,
 } from './actions';
 
+// Switch/case statements for each action using State
 export const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_PRODUCTS:

@@ -1,5 +1,7 @@
+// Importing out graph ql dependency
 import { gql } from '@apollo/client';
 
+//mutation for LOGIN
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -10,8 +12,8 @@ export const LOGIN = gql`
     }
   }
 `;
-
-export const ADD_USER = gql`
+//mutation for ADD_USERS
+export const ADD_USERS = gql`
   mutation addUser(
     $firstName: String!
     $lastName: String!
@@ -32,6 +34,7 @@ export const ADD_USER = gql`
   }
 `;
 
+// mutation for signup
 export const ADD_USERS = gql`
   mutation ADD_USER(
     $firstName: String!
@@ -108,3 +111,20 @@ export const ADD_ORDER = gql`
 //         salePrice: $salePrice
 //         createdAt: $createdAt
 //       )`;
+// mutation addOrder(
+//   $products: [ID]!) {
+//   addOrder(products: $products) {
+//     purchaseDate
+//     products {
+//       _id
+//       name
+//       description
+//       price
+//       quantity
+//       category {
+//         name
+//           }
+//         }
+//       }
+//     }
+//   `;
