@@ -18,20 +18,19 @@ function Signup(props) {
     try {
       const { data } = await signup({
         variables: {
-            firstName: formState.firstName,
-            lastName: formState.lastName,
-            email: formState.email,
-            password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          email: formState.email,
+          password: formState.password,
         },
       });
-      
+
       if (data.addUser && data.addUser.token) {
         Auth.login(data.addUser.token);
       } else {
         console.log('No token received after sign-up.');
       }
     } catch (error) {
-      console.error('Error during sign-up:', error);
       console.log('Full error object:', error);
     }
   };

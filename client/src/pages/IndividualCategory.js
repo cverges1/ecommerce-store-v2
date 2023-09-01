@@ -1,8 +1,7 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PRODUCTS_BY_CATEGORY } from "../utils/queries";
-import { Link, useParams } from "react-router-dom";
-
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_PRODUCTS_BY_CATEGORY } from '../utils/queries';
+import { Link, useParams } from 'react-router-dom';
 
 function ProductSection() {
   const { id } = useParams();
@@ -28,7 +27,9 @@ function ProductSection() {
               <img src={product.image} alt="" className="product-img" />
               <div className="product-text">
                 <p className="text-align-center product-name">{product.name}</p>
-                <p className="text-align-center product-price">{product.price}</p>
+                <p className="text-align-center product-price">
+                  {product.price}
+                </p>
               </div>
             </Link>
           </div>
