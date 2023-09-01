@@ -1,5 +1,7 @@
+// Importing out graph ql dependency
 import { gql } from '@apollo/client';
 
+//mutation for LOGIN
 export const LOGIN = gql`
   mutation login(
     $email: String!
@@ -14,8 +16,8 @@ export const LOGIN = gql`
     }
   }
 `;
-
-export const ADD_USER = gql`
+//mutation for ADD_USERS
+export const ADD_USERS = gql`
   mutation addUser(
     $firstName: String!
     $lastName: String!
@@ -36,16 +38,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_USERS = gql`
-mutation ADD_USER($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-  addUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
-    token
-    user {
-      _id
-    }
-  }
-}`
-
+//mutation for SIGNUP
 export const SIGNUP_MUTATION = gql`
   mutation Signup($userData: SignupInput!) {
     addUser(userData: $userData) {
@@ -54,24 +47,6 @@ export const SIGNUP_MUTATION = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder(
-    $products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
-            }
-          }
-        }
-      }
-    `;
 
 // KEEPING FOR FUTURE IMPLEMENTATION
     // export const ADD_CATEGORY = gql`
@@ -101,4 +76,20 @@ export const ADD_ORDER = gql`
 //         salePrice: $salePrice
 //         createdAt: $createdAt
 //       )`;
-    
+// mutation addOrder(
+//   $products: [ID]!) {
+//   addOrder(products: $products) {
+//     purchaseDate
+//     products {
+//       _id
+//       name
+//       description
+//       price
+//       quantity
+//       category {
+//         name
+//           }
+//         }
+//       }
+//     }
+//   `;

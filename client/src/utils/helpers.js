@@ -1,6 +1,5 @@
 export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
-    //not sure if 'shop-shop' should even be here??
     const request = window.indexedDB.open('shop-shop', 1);
     let db, tx, store;
     request.onupgradeneeded = function(e) {
