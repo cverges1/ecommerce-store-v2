@@ -1,7 +1,9 @@
+//importing our mongoose dependency
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+//setting up the schema model for Order
 const orderSchema = new Schema({
   purchaseDate: {
     type: Date,

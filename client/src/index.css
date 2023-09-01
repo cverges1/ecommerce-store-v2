@@ -552,3 +552,14 @@ color: rgb(194,195,204);
 .text-align-center {
   text-align: center;
 }
+
+/* Shopping cart */
+.cart-h1 {
+  padding-top: 250px;
+  padding-bottom: 200px;
+  text-align: center;
+}
+
+.cart-p {
+  text-align: center;
+}
