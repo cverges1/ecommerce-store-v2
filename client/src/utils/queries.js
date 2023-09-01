@@ -1,5 +1,7 @@
+// Importing our graph ql dependency
 import { gql } from '@apollo/client';
 
+// Query for GET_ALL_CATEGORIES
 export const GET_ALL_CATEGORIES = gql`
   query GetAllCategories {
     categories {
@@ -10,15 +12,7 @@ export const GET_ALL_CATEGORIES = gql`
   }
 `;
 
-export const GET_CATEGORY = gql`
-  query Category($id: ID!) {
-    category(_id: $id) {
-      categoryName
-      categoryImage
-    }
-  }
-`;
-
+// Query for GET_SINGLE_CATEGORY
 export const GET_SINGLE_CATEGORY = gql`
   query Category($categoryId: ID!) {
     category(_id: $id) {
@@ -36,6 +30,7 @@ export const GET_SINGLE_CATEGORY = gql`
   }
 `;
 
+// Query for GET_PRODUCTS_BY_CATEGORY
 export const GET_PRODUCTS_BY_CATEGORY = gql`
   query CATEGORY_PRODUCTS($categoryId: ID) {
     products(categoryID: $categoryId) {
@@ -52,7 +47,7 @@ export const GET_PRODUCTS_BY_CATEGORY = gql`
     }
   }
 `;
-
+//Query for get products
 export const GET_PRODUCTS = gql`
   query allProducts {
     products {
@@ -71,7 +66,7 @@ export const GET_PRODUCTS = gql`
     }
   }
 `;
-
+//Query for single product
 export const GET_SINGLE_PRODUCT = gql`
   query Product($id: ID!) {
     product(_id: $id) {
@@ -89,6 +84,7 @@ export const GET_SINGLE_PRODUCT = gql`
   }
 `;
 
+//Query for GET_USER
 export const GET_USER = gql`
   query GetUser {
     user {
@@ -116,6 +112,7 @@ export const GET_USER = gql`
   }
 `;
 
+// Query for GET_ORDER
 export const GET_ORDER = gql`
   query GetOrder($orderId: ID!) {
     order(_id: $orderId) {
@@ -136,7 +133,7 @@ export const GET_ORDER = gql`
     }
   }
 `;
-
+// Query for SIGNUP
 export const SIGNUP_MUTATION = gql`
   mutation Signup($userData: SignupInput!) {
     addUser(
