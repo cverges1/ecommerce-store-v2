@@ -14,9 +14,6 @@ const server = new ApolloServer({
   context: authMiddleware,
   debug: true,
 });
-require('dotenv').config();
-
-console.log("server",process.env.SECRET)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
