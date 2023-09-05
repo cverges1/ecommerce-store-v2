@@ -1,4 +1,4 @@
-// Importing our dependencies and middleware
+// Importing our dependencies and all middleware
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
