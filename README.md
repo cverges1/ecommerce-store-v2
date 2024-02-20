@@ -27,7 +27,7 @@
 
   ## Links
   - Github repo: https://github.com/cverges1/ecommerce-store-v2
-  - Heroku URL:  https://happy-tails-team-d28615ba32fb.herokuapp.com/
+  - Heroku URL:  https://morning-mesa-14358-6466ec7ce729.herokuapp.com
 
   ## Usage
   
